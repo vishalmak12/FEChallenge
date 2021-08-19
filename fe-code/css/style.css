@@ -116,6 +116,29 @@ section {
   margin-left: 20px;
 }
 
+/*Search Form button hover state*/
+
+.btn-form-submit:hover{
+  background: #F2DA56;
+  box-shadow: 0 3px 0 0 #A6953B, inset 0 1px 0 0 #FFFFFF;
+  border-radius: 6px;
+}
+
+/*Search Form button active state*/
+
+.btn.btn-form-submit:not(:disabled):not(.disabled).active, 
+.btn.btn-form-submit:not(:disabled):not(.disabled):active{
+  background-image: linear-gradient(225deg, #F2DA56 0%, #F6BC25 100%);
+}
+
+/*Search Form button focus state*/
+
+.btn-form-submit:focus{
+  background: #F6BC25;
+  box-shadow: 0 3px 0 0 #A6953B, inset 0 1px 0 0 #FFFFFF;
+  border-radius: 6px;
+}
+
 .input-group > .form-control {
   height: 70px;
   background: #FFF;
@@ -133,7 +156,7 @@ section {
   display: none;
 }
 
-.input-group.error .error-msg {
+.input-group.error .error-msg{
   display: block;
   position: absolute;
   bottom: -30px;
@@ -160,6 +183,61 @@ section {
   line-height: normal;
 }
 
+
+/*Email and Phone switch button styling starts*/
+
+.search-option{
+  margin-bottom: 15px;
+}
+
+.search-option .search-text{
+  font-size: 16px;
+  color: #FFFFFF;
+  letter-spacing: 0;
+  font-weight: 400;
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.search-option .option-email.active,
+.search-option .option-phone.active{
+  color: #004A80;
+  background: #F6BC25;
+  border-radius: 6px 6px 6px 0 0 0 6px;
+}
+
+.search-option .option-email.active:before,
+.search-option .option-phone.active:before{
+  content: "";
+  width: 0;
+  height: 0;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  position: absolute;
+  border-top: solid 10px #F6BC25;
+  border-left: solid 10px transparent;
+  border-right: solid 10px transparent;
+}
+
+.search-option .option-email, 
+.search-option .option-phone{
+  border: 3px solid #F6BC25;
+  border-radius: 6px;
+  display: inline-block;
+  margin-right: 15px;
+  font-size: 16px;
+  color: #F6BC25;
+  letter-spacing: 0;
+  font-weight: 700;
+  padding: 2px 8px;
+  cursor: pointer;
+  position: relative;
+}
+
+/*Email and Phone switch button styling ends*/
+
 @media (max-width: 767px) {
   .input-group {
     flex-direction: column;
@@ -173,6 +251,31 @@ section {
   }
   .btn-form-submit {
     margin: 12px 0 0 0;
+  }
+
+  /*Error message positioning in mobile view*/
+  .input-group.error .error-msg{
+    position: relative;
+    bottom: 0;
+  }
+
+  .search-option .search-text{
+    display: none;
+  }
+
+  .search-option{
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: space-between;
+  }
+  .search-option .option-email, 
+  .search-option .option-phone{
+    margin-right: 0;
+    text-align: center;
+    width: 49%;
   }
 }
 
@@ -385,4 +488,18 @@ section {
 .footer a:first-of-type:after {
   content: '|';
   padding-left: 5px;
+}
+
+
+/*Logo size*/
+
+.logo-icon{
+  width: 20px;
+  height: 23px;
+}
+
+/*Global class for display none*/
+
+.hide{
+  display: none;
 }

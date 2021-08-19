@@ -17,7 +17,7 @@
         </a>
         <div>
           <img src="img/icn_search.svg" width="23" height="23" alt="Search">
-          <img class="ml-4" src="img/icn_person.svg" alt="Profile">
+          <img class="ml-4 logo-icon" src="img/icn_person.svg" alt="Profile">
         </div>
       </div>
     </nav>
@@ -68,9 +68,16 @@
           <h2 class="mb-4 mb-md-5"><strong>Try Again</strong> - Make a new search</h2>
         </div>
         <form>
+          <div class="search-option">
+            <span class="search-text">TYPE OF SEARCH:</span>
+            <span class="option-email active">EMAIL ADDRESS</span>
+            <span class="option-phone">PHONE NUMBER</span>
+          </div>
           <div class="input-group">
-            <input class="form-control" type="text" name="email" placeholder="Enter an Email Address" />
-            <p class="error-msg">Please enter a valid email address</p>
+            <input class="form-control email-input" type="text" name="email" placeholder="Enter an Email Address" />
+            <p class="error-msg email-error">Please enter a valid email address</p>
+            <input class="form-control phone-input hide" type="tel" name="phone_number" placeholder="Enter phone number" pattern="^\d{10}$" required="required"/>
+            <p class="error-msg-phone hide">Please enter a valid phone number</p>
             <button id="btn-search" class="btn btn-form-submit text-uppercase" type="submit">Go!</button>
           </div>
         </form>
