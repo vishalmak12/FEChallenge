@@ -26,11 +26,13 @@ const clearErrorMessage = () => {
         phone = $('input[type="tel"]').val(); //Fetching phone number from input
         regEx = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
+        phoneRegex = /^\d{10}$/;
+
         if (email) {
             apiValue = email.match(regEx);
             url = 'https://ltv-data-api.herokuapp.com/api/v1/records.json?email=' + email;
         } else if (phone.length == 10) {
-            apiValue = phone;
+            apiValue = phone.match(phoneRegex);
             url = 'https://ltv-data-api.herokuapp.com/api/v1/records.json?phone=' + phone;
         }
 
@@ -44,12 +46,7 @@ const clearErrorMessage = () => {
                 .then((response) => response.text())
                 .then(function(contents) {
                     localStorage.setItem("userObject", contents);
-                    setTimeout(() => {
-                        $("#section-result-id").hide();
-                        $("#loader-id").hide();
-                        $("#footer-id").removeClass("footer-cont");
-                        window.location.href = "result.html";
-                    }, 1000);
+                     window.location.href = "result.html";
                 })
                 .catch((e) => console.log(e));
         } else {
