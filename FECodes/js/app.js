@@ -1,5 +1,4 @@
 const clearErrorMessage = () => {
-
     $(".error-msg.email-error").html("");
     $(".input-section").removeClass("error");
 }
@@ -38,11 +37,19 @@ const clearErrorMessage = () => {
         if (apiValue) {
             document.querySelector('input[type="text"]').parentNode.classList.remove("error");
             const proxyurl = "";
+            $("#section-result-id").hide();
+            $("#loader-id").show();
+            $("#footer-id").addClass("footer-cont");
             fetch(proxyurl + url)
                 .then((response) => response.text())
                 .then(function(contents) {
                     localStorage.setItem("userObject", contents);
-                    window.location.href = "result.html";
+                    setTimeout(() => {
+                        $("#section-result-id").hide();
+                        $("#loader-id").hide();
+                        $("#footer-id").removeClass("footer-cont");
+                        window.location.href = "result.html";
+                    }, 1000);
                 })
                 .catch((e) => console.log(e));
         } else {
@@ -54,7 +61,6 @@ const clearErrorMessage = () => {
             } else {
                 $("#errorMessageID").html("Please enter a valid email address");
             }
-
         }
     });
 })();
